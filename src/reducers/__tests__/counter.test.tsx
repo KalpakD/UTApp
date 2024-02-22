@@ -14,4 +14,10 @@ describe('Counter reducer', () => {
   };
   test('Counter Decrement Function', () =>
     expect(counter(decPayload.state, decPayload.action)).toEqual({count: 1}));
+
+  test('Counter Decrement SagaFunction', () => {
+    expect(
+      counter({count: 2}, {type: 'DECREMENT_WITH_SAGA', params: {diff: 1}}),
+    ).toEqual({count: 1});
+  });
 });

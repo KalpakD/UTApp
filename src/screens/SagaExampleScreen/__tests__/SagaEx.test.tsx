@@ -10,8 +10,6 @@ import configureMockStore from 'redux-mock-store';
 import SagaEx from '../SagaEx';
 
 const mockStore = configureMockStore();
-jest.mock('axios');
-// jest.useFakeTimers();
 
 describe('Render Home Components correctly ', () => {
   let props = {};

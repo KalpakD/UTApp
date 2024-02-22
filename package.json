@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "testUpdate":"jest -u",
+    "testCoverage":"jest --coverage -u" 
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",

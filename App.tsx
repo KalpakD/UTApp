@@ -7,7 +7,7 @@
 
 import React, {useEffect} from 'react';
 import Rootstack from '@navigation/Rootstack';
-import crashlytics, {firebase} from '@react-native-firebase/crashlytics';
+import crashlytics from '@react-native-firebase/crashlytics';
 import {Provider} from 'react-redux';
 import store from './src/store';
 

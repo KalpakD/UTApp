@@ -1,7 +1,8 @@
+import axios from 'axios';
 import {call, put} from 'redux-saga/effects';
 import {apiCallFunc, getList} from 'sagas/listSaga';
 
-jest.useFakeTimers();
+jest.mock('axios');
 
 describe('list api Saga', () => {
   const action = null;
@@ -26,12 +27,16 @@ describe('list api Saga', () => {
   it('Should Call List API', () => {
     const generator = apiCallFunc(action);
     generator.next();
-    expect(getList()).toBeDefined();
+    // expect(getList()).toBeDefined();
     const next = generator.next(apiResponse);
     expect(next.value).toEqual(
       put({type: 'GET_LIST_DATA', payload: mockResponse.leagues}),
     );
     generator.next();
   });
-  it('List API', () => {});
+  it('fetches successfully data from an API', async () => {
+    const data = mockResponse;
+    axios.get.mockImplementationOnce(() => Promise.resolve(data));
+    await expect(getList()).resolves.toEqual(data);
+  });
 });

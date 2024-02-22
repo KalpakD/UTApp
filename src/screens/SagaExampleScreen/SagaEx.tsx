@@ -9,7 +9,7 @@ const SagaEx = () => {
   const count = useSelector<any>(state => state.counter.count);
   const listData = useSelector<any>(state => state.list.data);
   useEffect(() => {
-    // dispatch({type: 'GET_LIST_API_CALL'});
+    dispatch({type: 'GET_LIST_API_CALL'});
   }, []);
   return (
     <View style={{flex: 1}}>

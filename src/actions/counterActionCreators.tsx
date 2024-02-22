@@ -5,9 +5,9 @@ export function increment(diff = 1) {
   };
 }
 
-export function decrementWithSaga(diff) {
+export function decrementWithSaga(diff: number) {
   return {
     type: 'DECREMENT_WITH_SAGA',
-    payload: diff, //for api / async response payloads
+    params: diff, //for api / async response payloads
   };
 }

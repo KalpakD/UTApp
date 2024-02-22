@@ -9,8 +9,8 @@ combineReducers - to combine multiple slice reducers into a single larger reduce
 applyMiddleware - to combine multiple middleware into a store enhancer
 compose - to combine multiple store enhancers into a single store enhancer
  */
-// const sagaMiddleware = createSagaMiddleware();
-// , applyMiddleware(sagaMiddleware)
-const store = createStore(reducer);
-// sagaMiddleware.run(rootSaga);
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 export default store;

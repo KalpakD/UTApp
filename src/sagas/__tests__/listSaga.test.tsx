@@ -36,7 +36,8 @@ describe('list api Saga', () => {
   });
   it('fetches successfully data from an API', async () => {
     const data = mockResponse;
-    axios.get.mockImplementationOnce(() => Promise.resolve(data));
+    let apiCall = jest.spyOn(axios, 'get');
+    apiCall.mockImplementation(() => Promise.resolve(data));
     await expect(getList()).resolves.toEqual(data);
   });
 });
